@@ -17,7 +17,7 @@ class DataModel: ObservableObject {
         parseTimelineItems()
         parseActivities()
         setupData()
-        //countGoalProgress()
+        countGoalProgress()
     }
     
     private var showAllLocoActivities = true
@@ -42,7 +42,7 @@ class DataModel: ObservableObject {
         parseTimelineItems()
         parseActivities()
         setupData()
-        countGoalProgress()
+        //countGoalProgress()
     }
     
     func addGoalToData(goal: Goal){
