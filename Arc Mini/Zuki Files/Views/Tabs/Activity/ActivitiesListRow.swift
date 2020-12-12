@@ -45,7 +45,7 @@ struct ActivityListRow: View {
                     Text("No Date")
                 }
                 Spacer().frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .leading)
-                Text(activity.category)
+                Text(activity.title ?? activity.category)
                     .fontWeight(.medium)
                     .foregroundColor(.black)
                     .frame(alignment: .leading)

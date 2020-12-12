@@ -563,7 +563,6 @@
 		C95E0E1A241795E6008418A1 /* Design */ = {
 			isa = PBXGroup;
 			children = (
-				C9822A88240CF8D8006B70F4 /* Assets.xcassets */,
 				C95E0E20241797D8008418A1 /* Colors.swift */,
 			);
 			path = Design;
@@ -611,6 +610,7 @@
 		C9822A81240CF8D5006B70F4 /* Arc Mini */ = {
 			isa = PBXGroup;
 			children = (
+				C9822A88240CF8D8006B70F4 /* Assets.xcassets */,
 				272965D62584C499005BF911 /* Zuki Files */,
 				272965D22584C45E005BF911 /* Arc Files */,
 				C99F5EC0242A376100E172AE /* Core */,

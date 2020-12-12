@@ -25,8 +25,8 @@ class DataModel: ObservableObject {
     
     @Published var goalData: [Goal] = [
         Goal(category: "Recycle", goalCount: 5),
-        Goal(category: "Train", goalCount: 7),
-        Goal(category: "Water Saved", goalCount: 3)
+        Goal(category: "Sustainable Transport", goalCount: 7),
+
     ]
     
     @Published var activityData: [Activity] = [
@@ -105,7 +105,7 @@ class DataModel: ObservableObject {
                         //not worth adding path, since it is not a sustainable one
                         continue
                     }
-                    let activity = Activity(category: "\(path.title) (Loco)", date: path.startDate ?? Date(timeIntervalSince1970: 0), isLocoTimelineActivity: true, path: path)
+                    let activity = Activity(title: "\(path.title) (Loco)", category: "Sustainable Transport", date: path.startDate ?? Date(timeIntervalSince1970: 0), isLocoTimelineActivity: true, path: path)
                     activityData.append(activity)
                 }
             }

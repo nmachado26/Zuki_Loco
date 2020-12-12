@@ -41,45 +41,52 @@ struct RecordersWidgetEntryView: View {
     let appGroup = AppGroup(appName: .arcMini, suiteName: "group.ArcApp", readOnly: true)
 
     var body: some View {
-        ZStack(alignment: .top) {
-            VStack(alignment: .leading) {
-                HStack {
-                    Text("Arc Recorders").font(.system(size: 14, weight: .semibold))
-                        .frame(height: 28)
-                }
-                ForEach(appGroup.sortedApps, id: \.updated) { appState in
-                    if appState.isAlive || family == .systemSmall {
-                        self.row(
-                            leftText: appState.isAlive ? Text(appState.recordingState.rawValue) : Text("dead"),
-                            rightText: Text(appState.appName.rawValue),
-                            isActiveRecorder: appState.isAliveAndRecording, isAlive: appState.isAlive
-                        ).frame(height: 28)
-                    } else {
-                        self.row(
-                            leftText: Text("dead (") + Text(appState.updated, style: .relative) + Text(" ago)"),
-                            rightText: Text(appState.appName.rawValue),
-                            isActiveRecorder: appState.isAliveAndRecording, isAlive: false
-                        ).frame(height: 28)
-                    }
-                }
-                Spacer()
+        VStack {
+            HStack {
+                Text("hellooo")
+                Text("hellooo2")
             }
-            
-            if appGroup.currentRecorder == nil {
-                HStack {
-                    Spacer()
-                    Image("warningIcon20").renderingMode(.template).foregroundColor(Color.red)
-                }
-            }
-            
-            VStack {
-                Spacer()
-                Text(Date(), style: .relative)
-                    .multilineTextAlignment(.center)
-                    .font(.system(size: 8, weight: .regular))
-                    .opacity(0.3)
-            }
+            Text("hellooo3")
         }
+//        ZStack(alignment: .top) {
+//            VStack(alignment: .leading) {
+//                HStack {
+//                    Text("Arc Recorders").font(.system(size: 14, weight: .semibold))
+//                        .frame(height: 28)
+//                }
+//                ForEach(appGroup.sortedApps, id: \.updated) { appState in
+//                    if appState.isAlive || family == .systemSmall {
+//                        self.row(
+//                            leftText: appState.isAlive ? Text(appState.recordingState.rawValue) : Text("dead"),
+//                            rightText: Text(appState.appName.rawValue),
+//                            isActiveRecorder: appState.isAliveAndRecording, isAlive: appState.isAlive
+//                        ).frame(height: 28)
+//                    } else {
+//                        self.row(
+//                            leftText: Text("dead (") + Text(appState.updated, style: .relative) + Text(" ago)"),
+//                            rightText: Text(appState.appName.rawValue),
+//                            isActiveRecorder: appState.isAliveAndRecording, isAlive: false
+//                        ).frame(height: 28)
+//                    }
+//                }
+//                Spacer()
+//            }
+//
+//            if appGroup.currentRecorder == nil {
+//                HStack {
+//                    Spacer()
+//                    Image("warningIcon20").renderingMode(.template).foregroundColor(Color.red)
+//                }
+//            }
+//
+//            VStack {
+//                Spacer()
+//                Text(Date(), style: .relative)
+//                    .multilineTextAlignment(.center)
+//                    .font(.system(size: 8, weight: .regular))
+//                    .opacity(0.3)
+//            }
+//        }
         .padding([.top, .leading, .trailing], family == .systemSmall ? 16 : 20)
         .padding([.bottom], 4)
     }

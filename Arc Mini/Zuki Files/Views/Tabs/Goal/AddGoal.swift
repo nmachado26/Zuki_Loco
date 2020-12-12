@@ -10,7 +10,7 @@ import SwiftUI
 struct AddGoal: View {
     
     
-    let categories = ["Recycle", "Water Saved", "Train"]
+    let categories = ["Recycle", "Sustainable Transport"]
     //@ObservedObject var reminder: ReminderEntity
     @EnvironmentObject var dataModel: DataModel
     

@@ -16,6 +16,7 @@ import CoreLocation
 
 struct Activity: Hashable, Codable, Identifiable {
     let id = UUID()
+    var title: String?
     var category: String
     var date: Date
     var isLocoTimelineActivity: Bool

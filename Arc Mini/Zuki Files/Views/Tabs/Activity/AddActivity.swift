@@ -9,7 +9,7 @@ import SwiftUI
 struct AddActivity: View {
     
     
-    let categories = ["Recycle", "Water Saved", "Train"]
+    let categories = ["Recycle", "Sustainable Transport"]
     //@ObservedObject var reminder: ReminderEntity
     @EnvironmentObject var dataModel: DataModel
     
