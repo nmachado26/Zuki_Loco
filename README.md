@@ -1,8 +1,13 @@
 # Zuki - Stanford HCI Lab
 
-Working on iOS version of WhoIsZuki. This repo is for quick prototyping to test different ideas, and therefore it was built upon the Arc Mini app to adopt some transportation classification functionality quickly and seamlessly. Arc Mini files are condensed in one folder, with Zuki work in the rest. 
+Working on iOS version of WhoIsZuki. This repo is for quick prototyping to test different ideas, and therefore it was built upon the Arc Mini app to adopt some transportation classification functionality quickly and seamlessly. 
 
-Build identifiers, naming conventions, etc are still adopted from Arc Mini.
+Folder paths:
+
+Arc Mini prior work - Arc Mini / Arc Files
+Zuki work - Arc Mini / the rest of the files  
+
+Build identifiers, naming conventions for files/folders, etc are still adopted from Arc Mini.
 
 Instructions to run (from Arc):
 
