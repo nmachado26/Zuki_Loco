@@ -17,7 +17,7 @@ class DataModel: ObservableObject {
         parseTimelineItems()
         parseActivities()
         setupData()
-        countGoalProgress()
+        //countGoalProgress()
     }
     
     private var showAllLocoActivities = true
@@ -38,7 +38,7 @@ class DataModel: ObservableObject {
     @Published var activitySections: [Day] = []
     
     func reload() {
-        activityData = []
+        activityData = [Activity(category: "Recycle", date: Date(timeIntervalSinceNow: -2454354), isLocoTimelineActivity: false)] //always default with 1 recycle
         parseTimelineItems()
         parseActivities()
         setupData()
@@ -112,7 +112,7 @@ class DataModel: ObservableObject {
 //                }
                 if let path = item as? ArcPath {
                     if !showAllLocoActivities && (path.activityType == .stationary || path.activityType == .car) {
-                        //not worth adding path, since it is not a sustainable one
+                        //not worth adding path bc not sustainable, since it is not a sustainable one
                         continue
                     }
                     let activity = Activity(title: "\(path.title) (Loco)", category: "Sustainable Transport", date: path.startDate ?? Date(timeIntervalSince1970: 0), isLocoTimelineActivity: true, path: path)
@@ -120,6 +120,7 @@ class DataModel: ObservableObject {
                 }
             }
         }
+       //let unknownIteem = TimelineItem(
         
     }
     
