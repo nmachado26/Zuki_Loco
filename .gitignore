@@ -1,0 +1,7 @@
+xcuserdata
+Pods
+*.xcscmblueprint
+metadata
+tags
+Config.plist
+.DS_Store

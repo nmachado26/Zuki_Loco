@@ -1,0 +1,106 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AEXML",
+        "repositoryURL": "https://github.com/tadija/AEXML",
+        "state": {
+          "branch": null,
+          "revision": "502c4d43a6cc9c395d19111e09dc62ad834977b5",
+          "version": "4.6.0"
+        }
+      },
+      {
+        "package": "GRDB",
+        "repositoryURL": "https://github.com/groue/GRDB.swift.git",
+        "state": {
+          "branch": null,
+          "revision": "5ee47c3c2765bdfde0f44c2ea9a263f6aa252d63",
+          "version": "4.14.0"
+        }
+      },
+      {
+        "package": "Gzip",
+        "repositoryURL": "https://github.com/1024jp/GzipSwift",
+        "state": {
+          "branch": null,
+          "revision": "ba0b6cb51cc6202f896e469b87d2889a46b10d1b",
+          "version": "5.1.1"
+        }
+      },
+      {
+        "package": "LocoKit",
+        "repositoryURL": "https://github.com/sobri909/LocoKit.git",
+        "state": {
+          "branch": "master",
+          "revision": "cab022c71e8ad6f8453b5a3966a578dfdfdef19c",
+          "version": null
+        }
+      },
+      {
+        "package": "PromiseKit",
+        "repositoryURL": "https://github.com/mxcl/PromiseKit",
+        "state": {
+          "branch": null,
+          "revision": "aea48ea1855f5d82e2dffa6027afce3aab8f3dd7",
+          "version": "6.13.3"
+        }
+      },
+      {
+        "package": "Sentry",
+        "repositoryURL": "https://github.com/getsentry/sentry-cocoa.git",
+        "state": {
+          "branch": null,
+          "revision": "80928b7e19a713fea798ba45c8bfda38096d7f30",
+          "version": "5.2.2"
+        }
+      },
+      {
+        "package": "swift-log",
+        "repositoryURL": "https://github.com/apple/swift-log",
+        "state": {
+          "branch": null,
+          "revision": "173f567a2dfec11d74588eea82cecea555bdc0bc",
+          "version": "1.4.0"
+        }
+      },
+      {
+        "package": "swift-log-format-and-pipe",
+        "repositoryURL": "https://github.com/Adorkable/swift-log-format-and-pipe",
+        "state": {
+          "branch": null,
+          "revision": "bd29badb9e6b18122ec10b84eed534db83cad279",
+          "version": "0.1.1"
+        }
+      },
+      {
+        "package": "SwiftNotes",
+        "repositoryURL": "https://github.com/sobri909/SwiftNotes",
+        "state": {
+          "branch": "master",
+          "revision": "1240d0b252551d78f2eb37a0bd468b9fa0a398e3",
+          "version": null
+        }
+      },
+      {
+        "package": "Introspect",
+        "repositoryURL": "https://github.com/timbersoftware/SwiftUI-Introspect.git",
+        "state": {
+          "branch": "master",
+          "revision": "f1ec9da347a7fbe53c520d35434f6c2295650bd5",
+          "version": null
+        }
+      },
+      {
+        "package": "Upsurge",
+        "repositoryURL": "https://github.com/alejandro-isaza/Upsurge.git",
+        "state": {
+          "branch": null,
+          "revision": "66c66253ab0d1a0988a6efb68f49629cf3e06a84",
+          "version": "0.11.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
