@@ -37,7 +37,11 @@ struct ActivityListRow: View {
 //                            .fontWeight(.medium)
 //                            .foregroundColor(Color.black)
 //                    }
-                    Text("\(hour):\(minute)")
+                    
+                    let hourStr = (hour < 10 ? "0\(hour)": "\(hour)")
+                    let minStr = (minute < 10 ? "0\(minute)": "\(minute)")
+                    let finStr = hourStr + ":" + minStr
+                    Text(finStr)
                         .fontWeight(.medium)
                         .foregroundColor(Color.black)
                 }
