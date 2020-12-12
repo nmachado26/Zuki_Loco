@@ -101,7 +101,7 @@ class DataModel: ObservableObject {
 //
 //                }
                 if let path = item as? ArcPath {
-                    let activity = Activity(category: "path activity", date: path.startDate ?? Date(timeIntervalSince1970: 0), isLocoTimelineActivity: true, path: path)
+                    let activity = Activity(category: "\(path.title) (Loco)", date: path.startDate ?? Date(timeIntervalSince1970: 0), isLocoTimelineActivity: true, path: path)
                     activityData.append(activity)
                 }
             }

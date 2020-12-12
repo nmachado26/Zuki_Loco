@@ -14,26 +14,43 @@ struct ActivityDetailView: View {
     @EnvironmentObject var mapState: MapState
     
     var body: some View {
-        GeometryReader { metrics in
-            ZStack(alignment: .bottom) {
-                MapView(mapState: self.mapState, timelineState: self.timelineState)
-                    .edgesIgnoringSafeArea(.all)
-                VStack(spacing: 0) {
-                    NavBar()
-                    Spacer()
-                    HStack {
+        if activity.isLocoTimelineActivity {
+            GeometryReader { metrics in
+                ZStack(alignment: .bottom) {
+                    MapView(mapState: self.mapState, timelineState: self.timelineState)
+                        .edgesIgnoringSafeArea(.all)
+                    VStack(spacing: 0) {
+                        NavBar()
                         Spacer()
-                        self.fullMapButton
-                            .offset(x: 0, y: self.mapState.showingFullMap ? self.timelineHeight(for: metrics, includingSafeArea: false) : 0)
+                        HStack {
+                            Spacer()
+                            self.fullMapButton
+                                .offset(x: 0, y: self.mapState.showingFullMap ? self.timelineHeight(for: metrics, includingSafeArea: false) : 0)
+                        }
+                        NavigationView {
+                            ItemDetailsView(timelineItem: activity.path!)
+                                .onAppear {
+                                    self.mapState.selectedItems.insert(activity.path!)
+                                }
+                                .onDisappear {
+                                    self.mapState.selectedItems.remove(activity.path!)
+                                }
+                        }
+                        .frame(width: metrics.size.width, height: self.timelineHeight(for: metrics))
+                        .offset(x: 0, y: self.mapState.showingFullMap ? self.timelineHeight(for: metrics, includingSafeArea: true) : 0)
                     }
-                    NavigationView {
-                        TimelineRootView()
-                    }
-                    .frame(width: metrics.size.width, height: self.timelineHeight(for: metrics))
-                    .offset(x: 0, y: self.mapState.showingFullMap ? self.timelineHeight(for: metrics, includingSafeArea: true) : 0)
                 }
             }
+            
+            
+            //ItemDetailsView(timelineItem: activity.path!)
+            //
+//            self.mapState.selectedItems.insert(item)
         }
+        else {
+            Text("Regular :/")
+        }
+
     }
 
     func timelineHeight(for metrics: GeometryProxy, includingSafeArea: Bool = false) -> CGFloat {
