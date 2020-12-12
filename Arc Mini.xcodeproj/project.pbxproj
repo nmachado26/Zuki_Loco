@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		272965D92584C500005BF911 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272965D82584C500005BF911 /* DataModel.swift */; };
+		272965E12584C516005BF911 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272965E02584C516005BF911 /* Goal.swift */; };
+		272965E62584C526005BF911 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272965E52584C526005BF911 /* Activity.swift */; };
+		272965ED2584C569005BF911 /* HostingTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272965EC2584C569005BF911 /* HostingTabBar.swift */; };
+		272965F52584C57F005BF911 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272965F42584C57F005BF911 /* HomeView.swift */; };
+		272965FE2584C5B3005BF911 /* ActivitiesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272965FD2584C5B3005BF911 /* ActivitiesList.swift */; };
+		272966062584C5BE005BF911 /* ActivitiesListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272966052584C5BE005BF911 /* ActivitiesListRow.swift */; };
+		2729660B2584C5D0005BF911 /* ActivityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2729660A2584C5D0005BF911 /* ActivityDetailView.swift */; };
+		272966102584C5DF005BF911 /* AddActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2729660F2584C5DF005BF911 /* AddActivity.swift */; };
+		272966162584C5F7005BF911 /* GoalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272966152584C5F7005BF911 /* GoalList.swift */; };
+		2729661E2584C600005BF911 /* GoalListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2729661D2584C600005BF911 /* GoalListRow.swift */; };
+		272966232584C609005BF911 /* GoalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272966222584C609005BF911 /* GoalDetailView.swift */; };
+		272966282584C613005BF911 /* AddGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272966272584C613005BF911 /* AddGoal.swift */; };
+		2729662D2584C697005BF911 /* GoogleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2729662C2584C697005BF911 /* GoogleDelegate.swift */; };
+		272966362584C716005BF911 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272966352584C716005BF911 /* Extensions.swift */; };
 		27DDAD56257E08ED000A4390 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27DDAD55257E08ED000A4390 /* Config.plist */; };
 		C90C27372439DCCC00A36251 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90C27362439DCCC00A36251 /* NavBar.swift */; };
 		C90D78542428FBA2004ABFD0 /* PathEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90D78532428FBA2004ABFD0 /* PathEditView.swift */; };
@@ -149,6 +164,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		272965D82584C500005BF911 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		272965E02584C516005BF911 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		272965E52584C526005BF911 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		272965EC2584C569005BF911 /* HostingTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingTabBar.swift; sourceTree = "<group>"; };
+		272965F42584C57F005BF911 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		272965FD2584C5B3005BF911 /* ActivitiesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesList.swift; sourceTree = "<group>"; };
+		272966052584C5BE005BF911 /* ActivitiesListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesListRow.swift; sourceTree = "<group>"; };
+		2729660A2584C5D0005BF911 /* ActivityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailView.swift; sourceTree = "<group>"; };
+		2729660F2584C5DF005BF911 /* AddActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivity.swift; sourceTree = "<group>"; };
+		272966152584C5F7005BF911 /* GoalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalList.swift; sourceTree = "<group>"; };
+		2729661D2584C600005BF911 /* GoalListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalListRow.swift; sourceTree = "<group>"; };
+		272966222584C609005BF911 /* GoalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailView.swift; sourceTree = "<group>"; };
+		272966272584C613005BF911 /* AddGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoal.swift; sourceTree = "<group>"; };
+		2729662C2584C697005BF911 /* GoogleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDelegate.swift; sourceTree = "<group>"; };
+		272966352584C716005BF911 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		27DDAD55257E08ED000A4390 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		C90C27362439DCCC00A36251 /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		C90D78532428FBA2004ABFD0 /* PathEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathEditView.swift; sourceTree = "<group>"; };
@@ -307,6 +337,89 @@
 				C9C045C924A891B300C1A99C /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		272965D22584C45E005BF911 /* Arc Files */ = {
+			isa = PBXGroup;
+			children = (
+				C91F10F825307DB600D3BD99 /* Backups */,
+				C91F7ACC241645A90013A5D5 /* Views */,
+				C9C6FBF3243333D9004F868C /* View Models */,
+				C95E0E2A2417B6E8008418A1 /* Models */,
+				C9EE17372449C63A004CFFA9 /* Managers */,
+				C918CF2A2439E4230019D350 /* Extensions */,
+				C95E0E1A241795E6008418A1 /* Design */,
+			);
+			path = "Arc Files";
+			sourceTree = "<group>";
+		};
+		272965D62584C499005BF911 /* Zuki Files */ = {
+			isa = PBXGroup;
+			children = (
+				272966342584C70B005BF911 /* Extensions */,
+				272965EA2584C545005BF911 /* Views */,
+				272965D72584C4F2005BF911 /* Models */,
+			);
+			path = "Zuki Files";
+			sourceTree = "<group>";
+		};
+		272965D72584C4F2005BF911 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				272965D82584C500005BF911 /* DataModel.swift */,
+				272965E02584C516005BF911 /* Goal.swift */,
+				272965E52584C526005BF911 /* Activity.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		272965EA2584C545005BF911 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				272965EB2584C54A005BF911 /* Tabs */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		272965EB2584C54A005BF911 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				272966142584C5E9005BF911 /* Goal */,
+				272965FC2584C5A6005BF911 /* Activity */,
+				272965EC2584C569005BF911 /* HostingTabBar.swift */,
+				272965F42584C57F005BF911 /* HomeView.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		272965FC2584C5A6005BF911 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				272965FD2584C5B3005BF911 /* ActivitiesList.swift */,
+				272966052584C5BE005BF911 /* ActivitiesListRow.swift */,
+				2729660A2584C5D0005BF911 /* ActivityDetailView.swift */,
+				2729660F2584C5DF005BF911 /* AddActivity.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		272966142584C5E9005BF911 /* Goal */ = {
+			isa = PBXGroup;
+			children = (
+				272966152584C5F7005BF911 /* GoalList.swift */,
+				2729661D2584C600005BF911 /* GoalListRow.swift */,
+				272966222584C609005BF911 /* GoalDetailView.swift */,
+				272966272584C613005BF911 /* AddGoal.swift */,
+			);
+			path = Goal;
+			sourceTree = "<group>";
+		};
+		272966342584C70B005BF911 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				272966352584C716005BF911 /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C90D786D2428FFD2004ABFD0 /* Place */ = {
@@ -495,14 +608,9 @@
 		C9822A81240CF8D5006B70F4 /* Arc Mini */ = {
 			isa = PBXGroup;
 			children = (
+				272965D62584C499005BF911 /* Zuki Files */,
+				272965D22584C45E005BF911 /* Arc Files */,
 				C99F5EC0242A376100E172AE /* Core */,
-				C95E0E1A241795E6008418A1 /* Design */,
-				C918CF2A2439E4230019D350 /* Extensions */,
-				C9EE17372449C63A004CFFA9 /* Managers */,
-				C95E0E2A2417B6E8008418A1 /* Models */,
-				C9C6FBF3243333D9004F868C /* View Models */,
-				C91F7ACC241645A90013A5D5 /* Views */,
-				C91F10F825307DB600D3BD99 /* Backups */,
 			);
 			path = "Arc Mini";
 			sourceTree = "<group>";
@@ -516,6 +624,7 @@
 				C9822A90240CF8D8006B70F4 /* Info.plist */,
 				C9822A82240CF8D5006B70F4 /* AppDelegate.swift */,
 				C9822A84240CF8D5006B70F4 /* SceneDelegate.swift */,
+				2729662C2584C697005BF911 /* GoogleDelegate.swift */,
 				C9822A8D240CF8D8006B70F4 /* LaunchScreen.storyboard */,
 				27DDAD55257E08ED000A4390 /* Config.plist */,
 			);
@@ -790,15 +899,19 @@
 			files = (
 				C90D786F2429006F004ABFD0 /* Migrations.swift in Sources */,
 				C9822A83240CF8D5006B70F4 /* AppDelegate.swift in Sources */,
+				272966162584C5F7005BF911 /* GoalList.swift in Sources */,
 				C95E0E21241797D9008418A1 /* Colors.swift in Sources */,
 				C99325942430EE59005299DC /* RowButtonStyle.swift in Sources */,
 				C9DBE4272437462B00FCB8E5 /* Pager.swift in Sources */,
+				272965D92584C500005BF911 /* DataModel.swift in Sources */,
 				C952400C242F51D200F4522D /* ArcCoordinatesMatrix.swift in Sources */,
 				C953392924126E670005E98F /* MapView.swift in Sources */,
 				C91F110325307F3D00D3BD99 /* ArcDocument.swift in Sources */,
 				C92EE1682445BA4F005DDDCB /* PlacesPendingUpdateView.swift in Sources */,
+				2729661E2584C600005BF911 /* GoalListRow.swift in Sources */,
 				C95E0E292417B6DD008418A1 /* ArcTimelineItem.swift in Sources */,
 				C91F10F325307DA900D3BD99 /* ConcreteBackupable.swift in Sources */,
+				272965FE2584C5B3005BF911 /* ActivitiesList.swift in Sources */,
 				C9C5C009242FB2C700BC064E /* MapState.swift in Sources */,
 				C9F32F47242A5BBE00184862 /* Health.swift in Sources */,
 				C969D1DE245199B600874305 /* ArcAnnotation.swift in Sources */,
@@ -810,42 +923,52 @@
 				C99F5EB6242A2C5000E172AE /* TrackPlay.swift in Sources */,
 				C9C827AD243C7B1E00F3199B /* Calendar+extensions.swift in Sources */,
 				C9822A85240CF8D5006B70F4 /* SceneDelegate.swift in Sources */,
+				272965ED2584C569005BF911 /* HostingTabBar.swift in Sources */,
 				C97C193C2432164700FC45A1 /* ItemSegmentEditView.swift in Sources */,
 				C90D78542428FBA2004ABFD0 /* PathEditView.swift in Sources */,
 				C95E0E2D2417B773008418A1 /* ArcVisit.swift in Sources */,
 				C92BF627241D06AD0089E4AD /* PathPolyline.swift in Sources */,
 				C90C27372439DCCC00A36251 /* NavBar.swift in Sources */,
 				C9C6FBF2243333D3004F868C /* TimelineState.swift in Sources */,
+				272966062584C5BE005BF911 /* ActivitiesListRow.swift in Sources */,
 				C928C2EF2443522300586121 /* RecordingDebugView.swift in Sources */,
 				C9DAA083249F97BE004BA946 /* ThinkingListBox.swift in Sources */,
 				C99F5EC5242A3F8600E172AE /* FSOAuth.m in Sources */,
 				C95E0E272417B19C008418A1 /* PathListBox.swift in Sources */,
 				C96E00B82449B3AD00A3635F /* TasksManager.swift in Sources */,
+				272965E12584C516005BF911 /* Goal.swift in Sources */,
+				2729660B2584C5D0005BF911 /* ActivityDetailView.swift in Sources */,
 				C90D786B2428FFCE004ABFD0 /* Place.stats.swift in Sources */,
 				C93062B3243F209F00DE47CC /* DebugLogView.swift in Sources */,
+				272966362584C716005BF911 /* Extensions.swift in Sources */,
 				C937EE2F24546A2A009D1593 /* ShareSheet.swift in Sources */,
 				C983603024969AFE007940F6 /* HeadlessView.swift in Sources */,
 				C953392B24127CF30005E98F /* TimelineDayView.swift in Sources */,
 				C99F5EBF242A371C00E172AE /* Scraps.swift in Sources */,
 				C9C827AF243C830500F3199B /* DispatchQueue.swift in Sources */,
+				272966282584C613005BF911 /* AddGoal.swift in Sources */,
 				C94808132441BE6100091943 /* UserTimelineClassifier.swift in Sources */,
 				C99F5EC9242A4EFA00E172AE /* Settings.swift in Sources */,
 				C92EE1662445A73D005DDDCB /* SystemDebugView.swift in Sources */,
 				C929C8882535CFA5001BF9C3 /* TimelineSegment+internal.swift in Sources */,
 				C9822A87240CF8D5006B70F4 /* RootView.swift in Sources */,
 				C95E0E1F2417969E008418A1 /* TimelineHeader.swift in Sources */,
+				272965E62584C526005BF911 /* Activity.swift in Sources */,
 				C9B86B88242CAD8900D52C0D /* ArcError.swift in Sources */,
 				C9F98B77242FAB38003D2A23 /* ItemSegmentsView.swift in Sources */,
 				C95E0E252417AEB8008418A1 /* VisitListBox.swift in Sources */,
+				272966232584C609005BF911 /* GoalDetailView.swift in Sources */,
 				C9C874F32458484000BAB9A3 /* ItemDetailsHeader.swift in Sources */,
 				C93062B1243F1B0D00DE47CC /* DebugLogsView.swift in Sources */,
 				C91F10F425307DA900D3BD99 /* Backupable.swift in Sources */,
 				C9C96AAF242760A2006D2E5B /* VisitEditView.swift in Sources */,
+				272965F52584C57F005BF911 /* HomeView.swift in Sources */,
 				C9EB6644241A60FA00F545AF /* ArcStore.swift in Sources */,
 				C9B1A6CF254D7E6A00F4EE2F /* Array+ArcSample.swift in Sources */,
 				C92BF626241D06AD0089E4AD /* VisitCircle.swift in Sources */,
 				C9C827B7243DEB7F00F3199B /* DebugLogger.swift in Sources */,
 				C90D78692428FFCE004ABFD0 /* PlaceClassifier.swift in Sources */,
+				272966102584C5DF005BF911 /* AddActivity.swift in Sources */,
 				C90D786A2428FFCE004ABFD0 /* Place.swift in Sources */,
 				C94808122441BE6100091943 /* UserActivityTypeClassifier.swift in Sources */,
 				C92BF628241D06AD0089E4AD /* VisitAnnotation.swift in Sources */,
@@ -853,6 +976,7 @@
 				C99F5EC6242A3F8600E172AE /* Foursquare.swift in Sources */,
 				C91F10F225307DA900D3BD99 /* Backups.swift in Sources */,
 				C95E0E2E2417B773008418A1 /* ArcPath.swift in Sources */,
+				2729662D2584C697005BF911 /* GoogleDelegate.swift in Sources */,
 				C9524007242F502700F4522D /* RecordingManager.swift in Sources */,
 				C99F5EBD242A307400E172AE /* LastFm.swift in Sources */,
 				C918CF2E243B1EE90019D350 /* TimelineRootView.swift in Sources */,

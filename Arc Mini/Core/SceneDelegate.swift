@@ -65,14 +65,36 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             RecordingManager.store.connectToDatabase()
             
             let window = UIWindow(windowScene: scene)
-            let rootView = RootView()
+//            let rootView = RootView()
+//                .environmentObject(self.timelineState)
+//                .environmentObject(self.mapState)
+//            window.rootViewController = UIHostingController(rootView: rootView)
+//            self.window = window
+//            window.makeKeyAndVisible()
+//
+//            logger.info("Grew a full head", subsystem: .ui)
+//
+            
+            var dataModel = DataModel()
+            var googleSSOFlag = false
+            
+            
+            let contentView = HostingTabBar(GoogleSSOFlag: googleSSOFlag)
+                .environmentObject(dataModel)
                 .environmentObject(self.timelineState)
                 .environmentObject(self.mapState)
-            window.rootViewController = UIHostingController(rootView: rootView)
-            self.window = window
-            window.makeKeyAndVisible()
-
-            logger.info("Grew a full head", subsystem: .ui)
+            // Use a UIHostingController as window root view controller.
+            if let windowScene = scene as? UIWindowScene {
+                let window = UIWindow(windowScene: windowScene)
+                window.rootViewController = UIHostingController(rootView: contentView)
+                
+                // Set presentingViewControlleer to rootViewController
+//                GIDSignIn.sharedInstance().presentingViewController = window.rootViewController
+                
+                self.window = window
+                window.makeKeyAndVisible()
+            }
+            
         }
     }
 
