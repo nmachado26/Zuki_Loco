@@ -103,7 +103,7 @@ class DataModel: ObservableObject {
                 if let path = item as? ArcPath {
                     if path.activityType == .stationary || path.activityType == .car {
                         //not worth adding path, since it is not a sustainable one
-                        return
+                        continue
                     }
                     let activity = Activity(category: "\(path.title) (Loco)", date: path.startDate ?? Date(timeIntervalSince1970: 0), isLocoTimelineActivity: true, path: path)
                     activityData.append(activity)
