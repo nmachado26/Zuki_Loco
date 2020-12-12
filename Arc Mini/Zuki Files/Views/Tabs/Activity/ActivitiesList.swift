@@ -10,25 +10,29 @@ import SwiftUI
 struct ActivitiesList: View {
     
     @EnvironmentObject var dataModel: DataModel
+    @EnvironmentObject var timelineState: TimelineState
+    @EnvironmentObject var mapState: MapState
     
     @State private var showAddActivity = false
     var body: some View {
         VStack(alignment: .leading) {
             NavigationView {
-                //                List(dataModel.activityData, id: \.id) { activity in
-                //                    ActivityListRow(activity: activity)
-                //                }
                 List {
                     ForEach(dataModel.activitySections) { section in
                         Section(header: Text(section.title)) {
                             ForEach(section.activities) { activity in
                                 ActivityListRow(activity: activity)
                             }
-                            
+
                         }
                     }
                 }
                 .navigationBarTitle("Activities")
+//                let dateRange = DateInterval(start: Date(timeIntervalSinceNow: -172800), end: Date(timeIntervalSinceNow: 0))
+//                TimelineDayView(timelineSegment: RecordingManager.store.segment(for: dateRange))
+                
+                
+                
             }
             
             //button

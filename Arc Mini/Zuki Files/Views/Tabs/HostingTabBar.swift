@@ -9,6 +9,9 @@ import SwiftUI
 
 struct HostingTabBar: View {
     
+    @EnvironmentObject var timelineState: TimelineState
+    @EnvironmentObject var mapState: MapState
+    
     var GoogleSSOFlag: Bool
     
     private enum Tab: Hashable {

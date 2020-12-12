@@ -40,7 +40,7 @@ struct AddActivity: View {
                         let hour = calendar.component(.hour, from: date)
                         let minute = calendar.component(.minute, from: date)
                         let second = calendar.component(.second, from: date)
-                        let activity = Activity(category: category, date: date)
+                        let activity = Activity(category: category, date: date, isLocoTimelineActivity: false)
                         dataModel.addActivityToData(activity: activity)
                         self.showModal = false
                     }) {

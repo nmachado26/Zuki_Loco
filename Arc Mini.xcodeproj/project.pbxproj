@@ -22,6 +22,7 @@
 		272966282584C613005BF911 /* AddGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272966272584C613005BF911 /* AddGoal.swift */; };
 		2729662D2584C697005BF911 /* GoogleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2729662C2584C697005BF911 /* GoogleDelegate.swift */; };
 		272966362584C716005BF911 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272966352584C716005BF911 /* Extensions.swift */; };
+		2729663E2584CA74005BF911 /* ActivityLocoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2729663D2584CA74005BF911 /* ActivityLocoDetailView.swift */; };
 		27DDAD56257E08ED000A4390 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27DDAD55257E08ED000A4390 /* Config.plist */; };
 		C90C27372439DCCC00A36251 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90C27362439DCCC00A36251 /* NavBar.swift */; };
 		C90D78542428FBA2004ABFD0 /* PathEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90D78532428FBA2004ABFD0 /* PathEditView.swift */; };
@@ -179,6 +180,7 @@
 		272966272584C613005BF911 /* AddGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoal.swift; sourceTree = "<group>"; };
 		2729662C2584C697005BF911 /* GoogleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDelegate.swift; sourceTree = "<group>"; };
 		272966352584C716005BF911 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2729663D2584CA74005BF911 /* ActivityLocoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLocoDetailView.swift; sourceTree = "<group>"; };
 		27DDAD55257E08ED000A4390 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		C90C27362439DCCC00A36251 /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		C90D78532428FBA2004ABFD0 /* PathEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathEditView.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 				272965FD2584C5B3005BF911 /* ActivitiesList.swift */,
 				272966052584C5BE005BF911 /* ActivitiesListRow.swift */,
 				2729660A2584C5D0005BF911 /* ActivityDetailView.swift */,
+				2729663D2584CA74005BF911 /* ActivityLocoDetailView.swift */,
 				2729660F2584C5DF005BF911 /* AddActivity.swift */,
 			);
 			path = Activity;
@@ -905,6 +908,7 @@
 				C9DBE4272437462B00FCB8E5 /* Pager.swift in Sources */,
 				272965D92584C500005BF911 /* DataModel.swift in Sources */,
 				C952400C242F51D200F4522D /* ArcCoordinatesMatrix.swift in Sources */,
+				2729663E2584CA74005BF911 /* ActivityLocoDetailView.swift in Sources */,
 				C953392924126E670005E98F /* MapView.swift in Sources */,
 				C91F110325307F3D00D3BD99 /* ArcDocument.swift in Sources */,
 				C92EE1682445BA4F005DDDCB /* PlacesPendingUpdateView.swift in Sources */,

@@ -58,6 +58,6 @@ struct ActivityListRow: View {
 
 struct ActivityListRow_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityListRow(activity: Activity(category: "Recycle", date: Date()))
+        ActivityListRow(activity: Activity(category: "Recycle", date: Date(), isLocoTimelineActivity: false))
     }
 }

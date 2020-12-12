@@ -8,10 +8,12 @@
 import Foundation
 import SwiftUI
 import CoreLocation
+import LocoKit
 
 class DataModel: ObservableObject {
     
     init() {
+        parseTimelineItems()
         parseActivities()
         setupData()
         countGoalProgress()
@@ -28,7 +30,7 @@ class DataModel: ObservableObject {
     ]
     
     @Published var activityData: [Activity] = [
-        Activity(category: "Recycle", date: Date(timeIntervalSince1970: 345345345))
+        Activity(category: "Recycle", date: Date(timeIntervalSinceNow: -2454354), isLocoTimelineActivity: false)
     ]
     
     @Published var activitySections: [Day] = []
@@ -64,7 +66,7 @@ class DataModel: ObservableObject {
     
     func parseActivities() {
         
-        let activities = activityData.sorted { $0.date < $1.date } // sort in ascending order
+        let activities = activityData.sorted { $0.date > $1.date } // sort in ascending order
         
         // create a DateFormatter
         let dateFormatter = DateFormatter()
@@ -86,6 +88,60 @@ class DataModel: ObservableObject {
         self.activitySections = grouped.map { day -> Day in
             Day(title: day.key, activities: day.value, date: day.value[0].date)
         }.sorted { $0.date > $1.date }
+    }
+    
+    func parseTimelineItems() {
+        let dateRange = DateInterval(start: Date(timeIntervalSinceNow: -172800), end: Date(timeIntervalSinceNow: 0))
+        let timelineSegment = RecordingManager.store.segment(for: dateRange)
+        let displayItems = getFilteredListItems(timelineSegment: timelineSegment)
+        
+        for displayItem in displayItems {
+            if let item = displayItem.timelineItem {
+//                if let visit = item as? ArcVisit {
+//
+//                }
+                if let path = item as? ArcPath {
+                    let activity = Activity(category: "path activity", date: path.startDate ?? Date(timeIntervalSince1970: 0), isLocoTimelineActivity: true, path: path)
+                    activityData.append(activity)
+                }
+            }
+        }
+        
+    }
+    
+    func getFilteredListItems(timelineSegment: TimelineSegment) -> [DisplayItem] {
+        var displayItems: [DisplayItem] = []
+        
+        var previousWasThinker = false
+        for item in timelineSegment.timelineItems.reversed() {
+            if item.dateRange == nil { continue }
+            if item.invalidated { continue }
+            
+            let useThinkers = RecordingManager.store.processing || getActiveItems(timelineSegment: timelineSegment).contains(item) || item.isMergeLocked
+
+            if item.isWorthKeeping {
+                displayItems.append(DisplayItem(timelineItem: item))
+                previousWasThinker = false
+                
+            } else if useThinkers && !previousWasThinker {
+                displayItems.append(DisplayItem(thinkerId: item.itemId))
+                previousWasThinker = true
+            }
+        }
+        
+        return displayItems
+    }
+    
+    func isToday(timelineSegment: TimelineSegment) -> Bool {
+        return timelineSegment.dateRange?.contains(Date()) == true
+    }
+
+    // the items inside the recorder's processing boundary
+    func getActiveItems(timelineSegment: TimelineSegment) ->[TimelineItem] {
+        if isToday(timelineSegment: timelineSegment), !LocomotionManager.highlander.recordingState.isSleeping, let currentItem = RecordingManager.recorder.currentItem {
+            return TimelineProcessor.itemsToProcess(from: currentItem)
+        }
+        return []
     }
     
     func countGoalProgress() {
@@ -125,4 +181,18 @@ struct Day: Identifiable {
     let title: String
     let activities: [Activity]
     let date: Date
+}
+
+struct DisplayItem: Identifiable {
+    var id: UUID
+    var timelineItem: TimelineItem?
+    
+    init(timelineItem: TimelineItem? = nil, thinkerId: UUID? = nil) {
+        self.timelineItem = timelineItem
+        if let timelineItem = timelineItem {
+            id = timelineItem.itemId
+        } else {
+            id = thinkerId!
+        }
+    }
 }

@@ -18,4 +18,6 @@ struct Activity: Hashable, Codable, Identifiable {
     let id = UUID()
     var category: String
     var date: Date
+    var isLocoTimelineActivity: Bool
+    var path: ArcPath?
 }

@@ -16,6 +16,10 @@ struct HomeView: View {
 //    @EnvironmentObject var timelineModel: TimelineModel
     @State private var showAddActivity = false
     
+    
+    @EnvironmentObject var timelineState: TimelineState
+    @EnvironmentObject var mapState: MapState
+    
     //@State private var showAddActivity = false
     //var googleSSOFlag: Bool
     var GoogleSSOFlag = false
