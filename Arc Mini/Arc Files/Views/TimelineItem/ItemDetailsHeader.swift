@@ -15,6 +15,7 @@ struct ItemDetailsHeader: View {
     var arcItem: ArcTimelineItem { return timelineItem as! ArcTimelineItem }
 
     var includeEditButton = true
+    var includeSegmentButton = false
 
     @State var tappedSegmentsButton = false
     @State var tappedEditButton = false
@@ -33,8 +34,10 @@ struct ItemDetailsHeader: View {
                 .foregroundColor(Color("brandTertiaryLight"))
                 .frame(height: 26)
             HStack(spacing: 0) {
-                self.segmentsButton
-                Spacer()
+                if self.includeSegmentButton {
+                    self.segmentsButton
+                    Spacer()
+                }
                 if self.canDelete {
                     self.deleteButton
                 }
@@ -144,7 +147,7 @@ struct ItemDetailsHeader: View {
                         .foregroundColor(Color("brandSecondary80"))
                         .frame(width: 24, height: 24)
                         .offset(x: 0, y: -1.5)
-                    Text("Edit")
+                    Text("Specify Activity Type")
                         .font(.system(size: 15, weight: .regular))
                         .foregroundColor(Color("brandSecondaryDark"))
                 }

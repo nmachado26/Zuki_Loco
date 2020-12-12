@@ -10,68 +10,76 @@ import SwiftUI
 import LocoKit
 
 struct ItemDetailsView: View {
-
+    
     @EnvironmentObject var mapState: MapState
+    @EnvironmentObject var dataModel: DataModel
     @EnvironmentObject var timelineState: TimelineState
     @ObservedObject var timelineItem: TimelineItem
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
     var arcItem: ArcTimelineItem { return timelineItem as! ArcTimelineItem }
-
+    
     // MARK: -
-
+    
     init(timelineItem: TimelineItem) {
         self.timelineItem = timelineItem
     }
-
+    
     // MARK: -
-
+    
     var body: some View {
         ScrollView(.vertical) {
             LazyVStack(alignment: .leading) {
-                ItemDetailsHeader(timelineItem: self.timelineItem)
-                HStack {
-                    if timelineItem.isVisit {
-                        Text("Visit Details").font(.system(size: 18, weight: .semibold))
-                    } else {
-                        Text("Trip Details").font(.system(size: 18, weight: .semibold))
-                    }
-                }.frame(height: 44)
                 
-                /** current item, current speed / altitude / etc **/
-
-                if RecordingManager.recordingState == .recording, timelineItem.isCurrentItem {
-                    if let location = timelineItem.samples.last?.location, location.hasUsableCoordinate {
-                        row(left: "Current location accuracy", right: Text(String(distance: location.horizontalAccuracy)))
-
-                        if timelineItem is ArcPath, location.horizontalAccuracy >= 0, location.horizontalAccuracy < 100 {
-                            row(left: "Current speed", right: Text(String(speed: location.speed)))
+                //only allow editiing
+                if timelineItem.activityType == .unknown || timelineItem.activityType == .bogus {
+                    ItemDetailsHeader(timelineItem: self.timelineItem)
+                }
+                else {
+                    ItemDetailsHeader(timelineItem: self.timelineItem)
+                    HStack {
+                        if timelineItem.isVisit {
+                            Text("Visit Details").font(.system(size: 18, weight: .semibold))
+                        } else {
+                            Text("Trip Details").font(.system(size: 18, weight: .semibold))
                         }
-
-                        if location.verticalAccuracy >= 0 {
-                            row(left: "Current altitude", right: Text(String(format: "%@ (+/- %@)",
-                                                                             String(metres: location.altitude, isAltitude: true),
-                                                                             String(metres: location.verticalAccuracy, isAltitude: true))))
+                    }.frame(height: 44)
+                    
+                    /** current item, current speed / altitude / etc **/
+                    
+                    if RecordingManager.recordingState == .recording, timelineItem.isCurrentItem {
+                        if let location = timelineItem.samples.last?.location, location.hasUsableCoordinate {
+                            row(left: "Current location accuracy", right: Text(String(distance: location.horizontalAccuracy)))
+                            
+                            if timelineItem is ArcPath, location.horizontalAccuracy >= 0, location.horizontalAccuracy < 100 {
+                                row(left: "Current speed", right: Text(String(speed: location.speed)))
+                            }
+                            
+                            if location.verticalAccuracy >= 0 {
+                                row(left: "Current altitude", right: Text(String(format: "%@ (+/- %@)",
+                                                                                 String(metres: location.altitude, isAltitude: true),
+                                                                                 String(metres: location.verticalAccuracy, isAltitude: true))))
+                            }
                         }
                     }
-                }
-                
-                if let path = timelineItem as? ArcPath, path.distance > 0 {
-                    row(left: "Distance", right: Text(String(format: "%@ at %@",
-                                                             String(metres: path.distance, isAltitude: false),
-                                                             String(speed: path.speed))))
-                }
-                
-                if let stepCountString = stepCountString {
-                    row(left: "Steps", right: Text(stepCountString))
-                }
-
-                if let ascended = timelineItem.floorsAscended, let descended = timelineItem.floorsDescended, (ascended > 0 || descended > 0) {
-                    row(left: "Flights climbed", right: Text(String(format: "%d up, %d down", ascended, descended)))
-                }
-                
-                if let altitude = timelineItem.altitude {
-                    row(left: "Altitude", right: Text(String(metres: altitude, isAltitude: true)))
+                    
+                    if let path = timelineItem as? ArcPath, path.distance > 0 {
+                        row(left: "Distance", right: Text(String(format: "%@ at %@",
+                                                                 String(metres: path.distance, isAltitude: false),
+                                                                 String(speed: path.speed))))
+                    }
+                    
+                    if let stepCountString = stepCountString {
+                        row(left: "Steps", right: Text(stepCountString))
+                    }
+                    
+                    if let ascended = timelineItem.floorsAscended, let descended = timelineItem.floorsDescended, (ascended > 0 || descended > 0) {
+                        row(left: "Flights climbed", right: Text(String(format: "%d up, %d down", ascended, descended)))
+                    }
+                    
+                    if let altitude = timelineItem.altitude {
+                        row(left: "Altitude", right: Text(String(metres: altitude, isAltitude: true)))
+                    }
                 }
             }
         }
@@ -92,6 +100,7 @@ struct ItemDetailsView: View {
         }
         .onReceive(self.timelineState.$tappedBackButton) { tappedBackButton in
             if tappedBackButton {
+                dataModel.reload()
                 presentationMode.wrappedValue.dismiss()
                 timelineState.tappedBackButton = false
             }
@@ -123,5 +132,5 @@ struct ItemDetailsView: View {
                 .foregroundColor(Color(UIColor.arcGray1))
         }.frame(height: 44)
     }
-
+    
 }

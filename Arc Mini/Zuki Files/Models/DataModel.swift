@@ -13,12 +13,14 @@ import LocoKit
 class DataModel: ObservableObject {
     
     init() {
+        
         parseTimelineItems()
         parseActivities()
         setupData()
         countGoalProgress()
     }
     
+    private var showAllLocoActivities = true
     @Published var totalGoalPercentage: Double = 0.0
     @Published var totalGoalCount: Int = 0
     @Published var currentGoalCount: Int = 0
@@ -34,6 +36,14 @@ class DataModel: ObservableObject {
     ]
     
     @Published var activitySections: [Day] = []
+    
+    func reload() {
+        activityData = []
+        parseTimelineItems()
+        parseActivities()
+        setupData()
+        countGoalProgress()
+    }
     
     func addGoalToData(goal: Goal){
         if goalData.contains(where: { $0.category == goal.category }) {
@@ -101,7 +111,7 @@ class DataModel: ObservableObject {
 //
 //                }
                 if let path = item as? ArcPath {
-                    if path.activityType == .stationary || path.activityType == .car {
+                    if !showAllLocoActivities && (path.activityType == .stationary || path.activityType == .car) {
                         //not worth adding path, since it is not a sustainable one
                         continue
                     }
