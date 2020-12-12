@@ -46,7 +46,8 @@ struct ActivityListRow: View {
                     ZStack {
                         Rectangle()
                             .fill(Color.blue)
-                            .frame(width: 70, height: 45)
+                            .frame(width: 70, height: 40)
+                            .cornerRadius(10)
                         
                         Text(finStr)
                             .fontWeight(.medium)

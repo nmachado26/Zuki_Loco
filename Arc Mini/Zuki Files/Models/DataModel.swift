@@ -115,7 +115,7 @@ class DataModel: ObservableObject {
                         //not worth adding path bc not sustainable, since it is not a sustainable one
                         continue
                     }
-                    let activity = Activity(title: "\(path.title) (Loco)", category: "Sustainable Transport", date: path.startDate ?? Date(timeIntervalSince1970: 0), isLocoTimelineActivity: true, path: path)
+                    let activity = Activity(title: "\(path.title)", category: "Sustainable Transport", date: path.startDate ?? Date(timeIntervalSince1970: 0), isLocoTimelineActivity: true, path: path)
                     activityData.append(activity)
                 }
             }
