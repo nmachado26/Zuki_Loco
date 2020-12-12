@@ -84,7 +84,7 @@ struct TimelineDayView: View {
 
     func listBox(for displayItem: DisplayItem) -> some View {
 
-        // show a "thinking" item for shitty stuff that's still processing or can't be processed yet
+        // show a "thinking" item for stuff that's still processing or can't be processed yet
         guard let item = displayItem.timelineItem else {
             let box = ThinkingListBox()
             return AnyView(box)
