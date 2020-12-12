@@ -4,8 +4,9 @@ Working on iOS version of WhoIsZuki. This repo is for quick prototyping to test 
 
 Folder paths:
 
-Arc Mini prior work - Arc Mini / Arc Files
-Zuki work - Arc Mini / the rest of the files  
+Arc Mini prior work - `Arc Mini / Arc Files`
+
+Zuki work - `Arc Mini / the rest of the files`
 
 Build identifiers, naming conventions for files/folders, etc are still adopted from Arc Mini.
 
