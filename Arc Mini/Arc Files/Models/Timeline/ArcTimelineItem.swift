@@ -33,8 +33,9 @@ extension ArcTimelineItem {
 
     var notes: [Note] {
         guard let dateRange = dateRange else { return [] }
-        return RecordingManager.store.notes(where: "date >= :startDate AND date <= :endDate AND deleted = 0 ORDER BY date DESC",
-                                            arguments: ["startDate": dateRange.start, "endDate": dateRange.end])
+        //return RecordingManager.store.notes(where: "date >= :startDate AND date <= :endDate AND deleted = 0 ORDER BY date DESC",
+//                                            arguments: ["startDate": dateRange.start, "endDate": dateRange.end])
+        return []
     }
 
     var startTimeString: String? {

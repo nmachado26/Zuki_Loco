@@ -37,7 +37,7 @@ class TimelineRangeSummary: TimelineObject, Backupable, Hashable {
         self.dateRange = dateRange
 
         addObservers()
-        RecordingManager.store.add(self)
+        //RecordingManager.store.add(self)
     }
 
     init(from dict: [String: Any?]) {
@@ -68,7 +68,7 @@ class TimelineRangeSummary: TimelineObject, Backupable, Hashable {
         self.backupLastSaved = dict["backupLastSaved"] as? Date
 
         addObservers()
-        RecordingManager.store.add(self)
+       // RecordingManager.store.add(self)
     }
 
     func addObservers() {
@@ -277,7 +277,7 @@ class TimelineRangeSummary: TimelineObject, Backupable, Hashable {
 
         self.segment = RecordingManager.store.segment(for: dateRange)
         addObservers()
-        RecordingManager.store.add(self)
+        //RecordingManager.store.add(self)
     }
 
     func encode(to encoder: Encoder) throws {

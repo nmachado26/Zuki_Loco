@@ -63,26 +63,27 @@ class Place: Hashable, Backupable {
     var lastSaved: Date?
 
     func save(immediate: Bool = true) {
-        do {
-            try RecordingManager.store.arcPool.write { db in
-                self.transactionDate = Date()
-                try self.save(in: db)
-                self.lastSaved = self.transactionDate
-            }
-        } catch {
-            logger.error("\(error)")
-        }
+        return
+//        do {
+//            try RecordingManager.store.arcPool.write { db in
+//                self.transactionDate = Date()
+//                try self.save(in: db)
+//                self.lastSaved = self.transactionDate
+//            }
+//        } catch {
+//            logger.error("\(error)")
+//        }
     }
 
     func saveNoDate() {
-        hasChanges = true
-        do {
-            try RecordingManager.store.arcPool.write { db in
-                try self.save(in: db)
-            }
-        } catch {
-            logger.error("\(error)")
-        }
+//        hasChanges = true
+//        do {
+//            try RecordingManager.store.arcPool.write { db in
+//                try self.save(in: db)
+//            }
+//        } catch {
+//            logger.error("\(error)")
+//        }
     }
 
     var source = "ArcMini"
@@ -150,7 +151,7 @@ class Place: Hashable, Backupable {
         self.radius = Radius(mean: max(radius.mean, Place.minimumPlaceRadius), sd: radius.sd)
         self.center = center
         self.name = name
-        RecordingManager.store.add(self)
+        //RecordingManager.store.add(self)
     }
 
     init(from dict: [String: Any?]) {
@@ -240,7 +241,7 @@ class Place: Hashable, Backupable {
         // Backupable
         self.backupLastSaved = dict["backupLastSaved"] as? Date
 
-        RecordingManager.store.add(self)
+        //RecordingManager.store.add(self)
     }
 
     func setVisitTimesHistograms(from visitTimesStrings: [String]) {

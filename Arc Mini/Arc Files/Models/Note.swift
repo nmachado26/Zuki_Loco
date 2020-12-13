@@ -27,7 +27,7 @@ class Note: Backupable {
         self.date = date
         self.body = body
         self.deleted = false
-        RecordingManager.store.add(self)
+        //RecordingManager.store.add(self)
     }
 
     init(from dict: [String: Any?]) {
@@ -44,7 +44,7 @@ class Note: Backupable {
         // Backupable
         self.backupLastSaved = dict["backupLastSaved"] as? Date
 
-        RecordingManager.store.add(self)
+        //RecordingManager.store.add(self)
     }
 
     // MARK: - TimelineObject
