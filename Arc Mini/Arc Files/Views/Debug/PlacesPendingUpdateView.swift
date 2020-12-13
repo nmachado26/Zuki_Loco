@@ -19,11 +19,10 @@ struct PlacesPendingUpdateView: View {
     }
 
     var pendingPlaceNames: [String] {
-//        let names = try? RecordingManager.store.arcPool.read { db in
-//            return try String.fetchAll(db, sql: "SELECT name FROM Place WHERE needsUpdate = 1")
-//        }
-//        return names ?? []
-        return  []
+        let names = try? RecordingManager.store.arcPool.read { db in
+            return try String.fetchAll(db, sql: "SELECT name FROM Place WHERE needsUpdate = 1")
+        }
+        return names ?? []
     }
 }
 

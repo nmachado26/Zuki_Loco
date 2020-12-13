@@ -106,14 +106,14 @@ class TasksManager {
 
         /* generic tasks */
 
-//        if RecordingManager.store.placesPendingUpdate > 0 {
-//            TasksManager.schedule(.placeModelUpdates, requiresPower: true)
-//        }
-//
-//        if RecordingManager.store.modelsPendingUpdate > 0 {
-//            TasksManager.schedule(.activityTypeModelUpdates, requiresPower: true)
-//            TasksManager.schedule(.updateTrustFactors, requiresPower: true)
-//        }
+        if RecordingManager.store.placesPendingUpdate > 0 {
+            TasksManager.schedule(.placeModelUpdates, requiresPower: true)
+        }
+
+        if RecordingManager.store.modelsPendingUpdate > 0 {
+            TasksManager.schedule(.activityTypeModelUpdates, requiresPower: true)
+            TasksManager.schedule(.updateTrustFactors, requiresPower: true)
+        }
 
         TasksManager.schedule(.sanitiseStore, requiresPower: true)
     }

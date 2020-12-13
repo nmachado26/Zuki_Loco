@@ -20,7 +20,6 @@ class DataModel: ObservableObject {
         countGoalProgress()
     }
     
-    let store = TimelineStore()
     private var showAllLocoActivities = true
     @Published var totalGoalPercentage: Double = 0.0
     @Published var totalGoalCount: Int = 0
@@ -29,7 +28,7 @@ class DataModel: ObservableObject {
     @Published var goalData: [Goal] = [
         Goal(category: "Recycle", goalCount: 5),
         Goal(category: "Sustainable Transport", goalCount: 7),
-        
+
     ]
     
     @Published var activityData: [Activity] = [
@@ -43,160 +42,7 @@ class DataModel: ObservableObject {
         parseTimelineItems()
         parseActivities()
         setupData()
-        countGoalProgress()
-        //test()
-        //newTest()
-    }
-    
-    var dataSet: TimelineSegment?
-    
-    func newTest() {
-        let dateRange = DateInterval(start: Date(timeIntervalSinceNow: -259200), end: Date(timeIntervalSinceNow: 0))
-        let query = "deleted = 0 AND endDate > datetime('now','-24 hours') ORDER BY startDate DESC"
-        dataSet = TimelineSegment(where: query, in: store) {
-            onMain { //calls every time new item in query
-                let items = self.getItemsToShow()
-                
-                self.newTestNext(timelineItems: items)
-
-            }
-        }
-    }
-    
-    func getItemsToShow() -> [TimelineItem] {
-        return dataSet?.timelineItems ?? []
-    }
-    
-    
-    func newTestNext(timelineItems: [TimelineItem]) {
-        
-        let dateRange = DateInterval(start: Date(timeIntervalSinceNow: -259200), end: Date(timeIntervalSinceNow: 0))
-        guard let classifier = store.recorder?.classifier else { return }
-        
-        var lastResults: ClassifierResults?
-        
-        for item in timelineItems {
-            var count = 0
-            
-            for sample in item.samples where sample.confirmedType == nil {
-                
-                //sample.classifiedType
-                // don't reclassify samples if they've been done within the past few months
-                if sample.classifiedType != nil, let lastSaved = sample.lastSaved, lastSaved.age < .oneMonth * 6 { continue }
-                
-                if sample.classifiedType == nil {
-                    print("Classifying sample: \(sample.date), segment.dateRange: \(dateRange)")
-                } else {
-                    print("Reclassifying sample: \(sample.date), segment.dateRange: \(dateRange)")
-                }
-                
-                let oldClassifiedType = sample.classifiedType
-                sample.classifierResults = classifier.classify(sample, previousResults: lastResults)
-                if sample.classifiedType != oldClassifiedType {
-                    count += 1
-                }
-                
-                lastResults = sample.classifierResults
-            }
-            
-            // item needs rebuild?
-            if count > 0 { item.sampleTypesChanged() }
-            
-            
-        }
-        
-    }
-
-    
-    func test() {
-        let dateRange = DateInterval(start: Date(timeIntervalSinceNow: -172800), end: Date(timeIntervalSinceNow: 0))
-        let timelineSegment = RecordingManager.store.segment(for: dateRange)
-        let displayItems = getFilteredListItems(timelineSegment: timelineSegment)
-        
-        for displayItem in displayItems {
-            if let item = displayItem.timelineItem {
-                //                if let visit = item as? ArcVisit {
-                //
-                //                }
-                if let path = item as? ArcPath {
-                    //let classif = path.classifierResults
-                    analyzePath(path: path)
-                    if !showAllLocoActivities && (path.activityType == .stationary || path.activityType == .car) {
-                        //not worth adding path bc not sustainable, since it is not a sustainable one
-                        continue
-                    }
-                    let activity = Activity(title: "\(path.title)", category: "Sustainable Transport", date: path.startDate ?? Date(timeIntervalSince1970: 0), isLocoTimelineActivity: true, path: path)
-                    activityData.append(activity)
-                }
-            }
-        }
-    }
-    
-    func analyzePath(path: ArcPath) {
-        
-    }
-    
-    //for debugging
-    func analyzePathOld(path: ArcPath) {
-        
-        let loco = LocomotionManager.highlander
-        
-        guard let location = loco.rawLocation?.coordinate else { //gives an incorrect coordinate????
-            print("Erro")
-            return
-        }
-        //13.7244416,100.3529157
-        let finCoordinate = CLLocationCoordinate2D(latitude: 13.7244416, longitude: 100.3529157)
-        
-        let coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-        
-        // fetch a geographically relevant classifier
-        let classifier = ActivityTypeClassifier(coordinate: finCoordinate)
-        let score = classifier?.coverageScore
-        let score2 = classifier?.accuracyScore
-        
-        let ifcontaints = classifier?.contains(coordinate: coordinate)
-        
-        let title = path.title
-        var prev = PersistentSample(date: Date(), recordingState: .off) //mock
-        var prevResult = ClassifierResults(confirmedType: .airplane) // mock
-        
-        print("ABOUT TO RUN THROUGH SAMPLES FOR - \(title)")
-        for (i,sample) in path.samples.enumerated() {
-            
-            if i == 0 {
-                //classify a locomotion sample
-                let results = classifier?.classify(sample, previousResults: nil)
-                
-                // get the best match activity type
-                let bestMatch = results?.first
-                
-                // print the best match type's name ("walking", "car", etc)
-                print("\(title) -- \(String(describing: bestMatch?.name))")
-                
-                if let result = results {
-                    prevResult = result
-                }
-                
-            }
-            else {
-                //classify a locomotion sample
-                
-                let results = classifier?.classify(sample, previousResults: prevResult)
-                
-                // get the best match activity type
-                let bestMatch = results?.first
-                
-                // print the best match type's name ("walking", "car", etc)
-                print("\(title) -- \(String(describing: bestMatch?.name))")
-                
-                if let result = results {
-                    prevResult = result
-                }
-            }
-        }
-        
-        print("DONE \n\n\n\n\n\n\n\n\n\n")
+        //countGoalProgress()
     }
     
     func addGoalToData(goal: Goal){
@@ -261,9 +107,9 @@ class DataModel: ObservableObject {
         
         for displayItem in displayItems {
             if let item = displayItem.timelineItem {
-                //                if let visit = item as? ArcVisit {
-                //
-                //                }
+//                if let visit = item as? ArcVisit {
+//
+//                }
                 if let path = item as? ArcPath {
                     if !showAllLocoActivities && (path.activityType == .stationary || path.activityType == .car) {
                         //not worth adding path bc not sustainable, since it is not a sustainable one
@@ -274,7 +120,7 @@ class DataModel: ObservableObject {
                 }
             }
         }
-        //let unknownIteem = TimelineItem(
+       //let unknownIteem = TimelineItem(
         
     }
     
@@ -287,7 +133,7 @@ class DataModel: ObservableObject {
             if item.invalidated { continue }
             
             let useThinkers = RecordingManager.store.processing || getActiveItems(timelineSegment: timelineSegment).contains(item) || item.isMergeLocked
-            
+
             if item.isWorthKeeping {
                 displayItems.append(DisplayItem(timelineItem: item))
                 previousWasThinker = false
@@ -304,7 +150,7 @@ class DataModel: ObservableObject {
     func isToday(timelineSegment: TimelineSegment) -> Bool {
         return timelineSegment.dateRange?.contains(Date()) == true
     }
-    
+
     // the items inside the recorder's processing boundary
     func getActiveItems(timelineSegment: TimelineSegment) ->[TimelineItem] {
         if isToday(timelineSegment: timelineSegment), !LocomotionManager.highlander.recordingState.isSleeping, let currentItem = RecordingManager.recorder.currentItem {
@@ -337,7 +183,7 @@ class DataModel: ObservableObject {
             }
         }
     }
-    
+
     
     func updateTotalGoal() {
         currentGoalCount += 1

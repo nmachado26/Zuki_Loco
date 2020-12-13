@@ -163,15 +163,13 @@ enum Backups {
     // MARK: - Counts
     
     static var backupNotesCount: Int {
-        return 0
-//        return RecordingManager.store.countNotes(
-//            where: "backupLastSaved IS NULL OR backupLastSaved < lastSaved")
+        return RecordingManager.store.countNotes(
+            where: "backupLastSaved IS NULL OR backupLastSaved < lastSaved")
     }
 
     static var backupPlacesCount: Int {
-        return 0
-//        return RecordingManager.store.countPlaces(
-//            where: "(backupLastSaved IS NULL OR backupLastSaved < lastSaved) AND visitsCount > 0")
+        return RecordingManager.store.countPlaces(
+            where: "(backupLastSaved IS NULL OR backupLastSaved < lastSaved) AND visitsCount > 0")
     }
 
     static var backupItemsCount: Int {
@@ -185,46 +183,41 @@ enum Backups {
     }
 
     static var backupTimelineSummariesCount: Int {
-        return 0
-//        return RecordingManager.store.countTimelineSummaries(
-//            where: "backupLastSaved IS NULL OR backupLastSaved < lastSaved")
+        return RecordingManager.store.countTimelineSummaries(
+            where: "backupLastSaved IS NULL OR backupLastSaved < lastSaved")
     }
     
     // MARK: - Batches
 
     private static var notesBackupBatch: [Note] {
-        return []
-//        return RecordingManager.store.notes(
-//            where: "(backupLastSaved IS NULL OR backupLastSaved < lastSaved) LIMIT ?",
-//            arguments: [notesBatchSize])
+        return RecordingManager.store.notes(
+            where: "(backupLastSaved IS NULL OR backupLastSaved < lastSaved) LIMIT ?",
+            arguments: [notesBatchSize])
     }
 
     private static var placesBackupBatch: [Place] {
-        return []
-//        return RecordingManager.store.places(
-//            where: "(backupLastSaved IS NULL OR backupLastSaved < lastSaved) AND visitsCount > 0 LIMIT ?",
-//            arguments: [placesBatchSize])
+        return RecordingManager.store.places(
+            where: "(backupLastSaved IS NULL OR backupLastSaved < lastSaved) AND visitsCount > 0 LIMIT ?",
+            arguments: [placesBatchSize])
     }
 
     private static var itemsBackupBatch: [ArcTimelineItem] {
-        return []
-//        RecordingManager.store.saveNoDate()
-//        let results = RecordingManager.store.items(
-//            where: "(backupLastSaved IS NULL OR backupLastSaved < lastSaved) AND restoring = 0 LIMIT ?",
-//            arguments: [itemsBatchSize])
-//        if results.isEmpty { return [] }
-//        return results as? [ArcTimelineItem] ?? []
+        RecordingManager.store.saveNoDate()
+        let results = RecordingManager.store.items(
+            where: "(backupLastSaved IS NULL OR backupLastSaved < lastSaved) AND restoring = 0 LIMIT ?",
+            arguments: [itemsBatchSize])
+        if results.isEmpty { return [] }
+        return results as? [ArcTimelineItem] ?? []
     }
 
     private static var summariesBackupBatch: [TimelineRangeSummary] {
-        return []
-//        return RecordingManager.store.timelineSummaries(
-//            where: "(backupLastSaved IS NULL OR backupLastSaved < lastSaved) LIMIT ?",
-//            arguments: [summariesBatchSize])
+        return RecordingManager.store.timelineSummaries(
+            where: "(backupLastSaved IS NULL OR backupLastSaved < lastSaved) LIMIT ?",
+            arguments: [summariesBatchSize])
     }
 
     private static var sampleWeeksBatch: [DateInterval] {
-        //RecordingManager.store.saveNoDate()
+        RecordingManager.store.saveNoDate()
         guard let pool = RecordingManager.store.pool else { return [] }
         let sql = """
             SELECT

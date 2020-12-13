@@ -19,7 +19,7 @@ class RecordingManager {
 
     static let highlander = RecordingManager()
 
-    static let store = TimelineStore()
+    static let store = ArcStore()
     static var recorder: TimelineRecorder { return highlander.recorder }
 
     // MARK: -

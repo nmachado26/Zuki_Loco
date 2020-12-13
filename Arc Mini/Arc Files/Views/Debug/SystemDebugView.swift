@@ -26,16 +26,16 @@ struct SystemDebugView: View {
                     self.row(leftText: "Thermal state", right: Text(AppDelegate.thermalState.stringValue))
                     self.row(leftText: "Memory footprint", right: Text(AppDelegate.memoryString ?? "?"))
                 }
-//                Section(header: Text("Task Queues")) {
-//                    self.row(leftText: "Primary queue jobs", right: Text("\(Jobs.highlander.primaryQueue.operationCount)"))
-//                    self.row(leftText: "Secondary queue jobs", right: Text("\(Jobs.highlander.secondaryQueue.operationCount)"))
-//                    NavigationLink(destination: PlacesPendingUpdateView()) {
-//                        self.row(leftText: "Places pending update", right: Text("\(RecordingManager.store.placesPendingUpdate)"))
-//                    }
-//                    NavigationLink(destination: ModelsPendingUpdateView()) {
-//                        self.row(leftText: "UD models pending update", right: Text("\(RecordingManager.store.modelsPendingUpdate)"))
-//                    }
-//                }
+                Section(header: Text("Task Queues")) {
+                    self.row(leftText: "Primary queue jobs", right: Text("\(Jobs.highlander.primaryQueue.operationCount)"))
+                    self.row(leftText: "Secondary queue jobs", right: Text("\(Jobs.highlander.secondaryQueue.operationCount)"))
+                    NavigationLink(destination: PlacesPendingUpdateView()) {
+                        self.row(leftText: "Places pending update", right: Text("\(RecordingManager.store.placesPendingUpdate)"))
+                    }
+                    NavigationLink(destination: ModelsPendingUpdateView()) {
+                        self.row(leftText: "UD models pending update", right: Text("\(RecordingManager.store.modelsPendingUpdate)"))
+                    }
+                }
                 Section(header: Text("Pending Backups")) {
                     self.row(leftText: "Notes pending backup", right: Text("\(Backups.backupNotesCount)"))
                     self.row(leftText: "Places pending backup", right: Text("\(Backups.backupPlacesCount)"))

@@ -19,7 +19,7 @@ class PlaceCache {
 
     static var cache = PlaceCache()
 
-    var store: TimelineStore { return RecordingManager.store }
+    var store: ArcStore { return RecordingManager.store }
 
     lazy var updatesQueue: OperationQueue = {
         let queue = OperationQueue()
@@ -32,29 +32,25 @@ class PlaceCache {
     // MARK: - Cache lookups
 
     func placeFor(foursquareVenueId: String) -> Place? {
-        //return store.place(where: "foursquareVenueId = ?", arguments: [foursquareVenueId])
-        return nil
+        return store.place(where: "foursquareVenueId = ?", arguments: [foursquareVenueId])
     }
 
     func placeFor(facebookPlaceId: String) -> Place? {
-        //return store.place(where: "facebookPlaceId = ?", arguments: [facebookPlaceId])
-        return nil
+        return store.place(where: "facebookPlaceId = ?", arguments: [facebookPlaceId])
     }
 
     func placeFor(movesPlaceId: Int) -> Place? {
-        //return store.place(where: "movesPlaceId = ?", arguments: [movesPlaceId])
-        return nil
+        return store.place(where: "movesPlaceId = ?", arguments: [movesPlaceId])
     }
 
     func placesNear(_ coordinate: CLLocationCoordinate2D, padding: CLLocationDegrees = 0.02) -> [Place] {
         let query = "latitude > :latMin AND latitude < :latMax AND longitude > :longMin AND longitude < :longMax"
 
-        return []
-//        return store.places(where: query, arguments: [
-//            "latMin": coordinate.latitude - padding, "latMax": coordinate.latitude + padding,
-//            "longMin": coordinate.longitude - padding, "longMax": coordinate.longitude + padding
-//            ]
-//        )
+        return store.places(where: query, arguments: [
+            "latMin": coordinate.latitude - padding, "latMax": coordinate.latitude + padding,
+            "longMin": coordinate.longitude - padding, "longMax": coordinate.longitude + padding
+            ]
+        )
     }
 
     func placesOverlapping(_ visit: ArcVisit) -> [Place] {
@@ -70,7 +66,7 @@ class PlaceCache {
     func placesMatching(nameLike: String, near coordinate: CLLocationCoordinate2D? = nil) -> [Place] {
 
         // have search query to match against?
-        //if !nameLike.isEmpty { return store.places(where: "name LIKE ?", arguments: ["%\(nameLike)%"]) }
+        if !nameLike.isEmpty { return store.places(where: "name LIKE ?", arguments: ["%\(nameLike)%"]) }
 
         // have coordinate to match against?
         if let coordinate = coordinate { return placesNear(coordinate) }
@@ -79,8 +75,7 @@ class PlaceCache {
     }
 
     var haveHome: Bool {
-        //return store.place(where: "isHome = 1") != nil
-        return true
+        return store.place(where: "isHome = 1") != nil
     }
 
     // MARK: - Remote place fetching
@@ -135,10 +130,10 @@ class PlaceCache {
     // MARK: - Misc
 
     func flushFoursquareResultsIndexes() {
-//        guard let enumerator = store.placeMap.objectEnumerator() else { return }
-//        while let place = enumerator.nextObject() as? Place {
-//            place.foursquareResultsIndex = nil
-//        }
+        guard let enumerator = store.placeMap.objectEnumerator() else { return }
+        while let place = enumerator.nextObject() as? Place {
+            place.foursquareResultsIndex = nil
+        }
     }
 
     // MARK: - Place updating
@@ -166,10 +161,10 @@ class PlaceCache {
 
         // do the job
         store.connectToDatabase()
-//        if let place = store.place(where: "needsUpdate = 1") {
-//            place.updateStatistics(task: task) // this will recurse back to here on completion
-//            return
-//        }
+        if let place = store.place(where: "needsUpdate = 1") {
+            place.updateStatistics(task: task) // this will recurse back to here on completion
+            return
+        }
 
         // job's finished
         TasksManager.update(.placeModelUpdates, to: .completed)

@@ -18,7 +18,7 @@ final class UserActivityTypesCache: MLModelSource {
 
     static var highlander = UserActivityTypesCache()
 
-    var store: TimelineStore { return RecordingManager.store }
+    var store: ArcStore { return RecordingManager.store }
     let mutex = UnfairLock()
 
     lazy var updatesQueue: OperationQueue = {
@@ -45,7 +45,7 @@ final class UserActivityTypesCache: MLModelSource {
             arguments.append(coordinate.longitude)
         }
 
-        //if let model = store.userModel(for: query, arguments: StatementArguments(arguments)) { return model }
+        if let model = store.userModel(for: query, arguments: StatementArguments(arguments)) { return model }
 
         // create model if missing
         if name != .unknown {
@@ -78,8 +78,8 @@ final class UserActivityTypesCache: MLModelSource {
             arguments.append(coordinate.longitude)
         }
 
-        //var models = store.userModels(for: query, arguments: StatementArguments(arguments))
-        var models :[UserActivityType] = []
+        var models = store.userModels(for: query, arguments: StatementArguments(arguments))
+
         // create base models if missing
         for missingType in models.missingBaseTypes {
             if let model = UserActivityType(name: missingType, coordinate: coordinate) {
@@ -151,7 +151,6 @@ final class UserActivityTypesCache: MLModelSource {
     }
     
     func housekeep() {
-        /*
         background {
             let nameMarks = repeatElement("?", count: ActivityTypeName.extendedTypes.count).joined(separator: ",")
 
@@ -168,11 +167,9 @@ final class UserActivityTypesCache: MLModelSource {
             let oldModels = self.store.userModels(where: "version < ? AND isShared = 0 AND totalSamples > 0", arguments: [ActivityType.currentVersion])
             for model in oldModels {
                 model.needsUpdate = true
-              
                 model.save()
             }
         }
-        */
     }
 
     var backgroundTaskExpired = false
@@ -198,10 +195,10 @@ final class UserActivityTypesCache: MLModelSource {
 
         // do the job
         store.connectToDatabase()
-//        if let model = store.userModel(where: "isShared = 0 AND needsUpdate = 1") {
-//            model.update(task: task) // this will recurse back to here on completion
-//            return
-//        }
+        if let model = store.userModel(where: "isShared = 0 AND needsUpdate = 1") {
+            model.update(task: task) // this will recurse back to here on completion
+            return
+        }
 
         // job's finished
         TasksManager.update(.activityTypeModelUpdates, to: .completed)
