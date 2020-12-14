@@ -45,7 +45,8 @@ struct SystemDebugView: View {
                         .opacity(refreshingSamplesPending ? 0.5 : 1)
                         .onTapGesture {
                             refreshingSamplesPending = true
-                            Arc_Mini.background {
+                           
+                            Zuki.background {
                                 samplesPendingBackup = Backups.backupSamplesCount
                                 refreshingSamplesPending = false
                             }

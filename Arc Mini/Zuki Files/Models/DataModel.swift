@@ -101,7 +101,7 @@ class DataModel: ObservableObject {
     }
     
     func parseTimelineItems() {
-        let dateRange = DateInterval(start: Date(timeIntervalSinceNow: -172800), end: Date(timeIntervalSinceNow: 0))
+        let dateRange = DateInterval(start: Date(timeIntervalSinceNow: -1700800), end: Date(timeIntervalSinceNow: 0))
         let timelineSegment = RecordingManager.store.segment(for: dateRange)
         let displayItems = getFilteredListItems(timelineSegment: timelineSegment)
         
@@ -113,6 +113,10 @@ class DataModel: ObservableObject {
                 if let path = item as? ArcPath {
                     if !showAllLocoActivities && (path.activityType == .stationary || path.activityType == .car) {
                         //not worth adding path bc not sustainable, since it is not a sustainable one
+                        continue
+                    }
+                    
+                    if path.distance < 100 {
                         continue
                     }
                     let activity = Activity(title: "\(path.title)", category: "Sustainable Transport", date: path.startDate ?? Date(timeIntervalSince1970: 0), isLocoTimelineActivity: true, path: path)

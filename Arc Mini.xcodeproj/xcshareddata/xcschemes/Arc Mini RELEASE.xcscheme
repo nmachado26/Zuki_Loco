@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C9822A7E240CF8D5006B70F4"
-               BuildableName = "Arc Mini.app"
-               BlueprintName = "Arc Mini"
+               BuildableName = "Zuki.app"
+               BlueprintName = "Zuki"
                ReferencedContainer = "container:Arc Mini.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9822A7E240CF8D5006B70F4"
-            BuildableName = "Arc Mini.app"
-            BlueprintName = "Arc Mini"
+            BuildableName = "Zuki.app"
+            BlueprintName = "Zuki"
             ReferencedContainer = "container:Arc Mini.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9822A7E240CF8D5006B70F4"
-            BuildableName = "Arc Mini.app"
-            BlueprintName = "Arc Mini"
+            BuildableName = "Zuki.app"
+            BlueprintName = "Zuki"
             ReferencedContainer = "container:Arc Mini.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -239,7 +239,7 @@
 		C977E57324AB600700B2F0BA /* RecordersWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RecordersWidgetExtension.entitlements; sourceTree = "<group>"; };
 		C97C193B2432164700FC45A1 /* ItemSegmentEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSegmentEditView.swift; sourceTree = "<group>"; };
 		C97DCDEA242395C3006437B7 /* ItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsView.swift; sourceTree = "<group>"; };
-		C9822A7F240CF8D5006B70F4 /* Arc Mini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Arc Mini.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9822A7F240CF8D5006B70F4 /* Zuki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zuki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9822A82240CF8D5006B70F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9822A84240CF8D5006B70F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C9822A86240CF8D5006B70F4 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -600,7 +600,7 @@
 		C9822A80240CF8D5006B70F4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C9822A7F240CF8D5006B70F4 /* Arc Mini.app */,
+				C9822A7F240CF8D5006B70F4 /* Zuki.app */,
 				C9C045C624A891B300C1A99C /* RecordersWidgetExtension.appex */,
 				C9120BD1250BBDD80063A2B7 /* CurrentItemWidgetExtension.appex */,
 			);
@@ -752,9 +752,9 @@
 			productReference = C9120BD1250BBDD80063A2B7 /* CurrentItemWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		C9822A7E240CF8D5006B70F4 /* Arc Mini */ = {
+		C9822A7E240CF8D5006B70F4 /* Zuki */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C9822A93240CF8D8006B70F4 /* Build configuration list for PBXNativeTarget "Arc Mini" */;
+			buildConfigurationList = C9822A93240CF8D8006B70F4 /* Build configuration list for PBXNativeTarget "Zuki" */;
 			buildPhases = (
 				C9822A7B240CF8D5006B70F4 /* Sources */,
 				C9822A7C240CF8D5006B70F4 /* Frameworks */,
@@ -767,7 +767,7 @@
 				C9C045D224A891B500C1A99C /* PBXTargetDependency */,
 				C9120BDE250BBDDA0063A2B7 /* PBXTargetDependency */,
 			);
-			name = "Arc Mini";
+			name = Zuki;
 			packageProductDependencies = (
 				C9C96AB124278052006D2E5B /* Introspect */,
 				C99F5EB2242A240D00E172AE /* PromiseKit */,
@@ -780,7 +780,7 @@
 				C9AA224F257B8D92002E2A0D /* LocoKit */,
 			);
 			productName = "Arc Mini";
-			productReference = C9822A7F240CF8D5006B70F4 /* Arc Mini.app */;
+			productReference = C9822A7F240CF8D5006B70F4 /* Zuki.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C9C045C524A891B300C1A99C /* RecordersWidgetExtension */ = {
@@ -849,7 +849,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C9822A7E240CF8D5006B70F4 /* Arc Mini */,
+				C9822A7E240CF8D5006B70F4 /* Zuki */,
 				C9C045C524A891B300C1A99C /* RecordersWidgetExtension */,
 				C9120BD0250BBDD80063A2B7 /* CurrentItemWidgetExtension */,
 			);
@@ -1312,7 +1312,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C9822A93240CF8D8006B70F4 /* Build configuration list for PBXNativeTarget "Arc Mini" */ = {
+		C9822A93240CF8D8006B70F4 /* Build configuration list for PBXNativeTarget "Zuki" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9822A94240CF8D8006B70F4 /* Debug */,

@@ -62,7 +62,7 @@ struct ItemSegmentsView: View {
                                     .foregroundColor(.red)
 
                             } else {
-                                Text(segment.activityType?.displayName.capitalized.localised() ?? "Unknown".localised())
+                                Text(segment.activityType?.displayName.capitalized.localised() ?? "Not Specified".localised())
                                     .font(.system(size: 17, weight: .regular))
                             }
                             Spacer()
